@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: beige;
+}
+
+#accordion {
+  margin: auto;
+  width: 40em;
+}
+
+h1 {
+  text-align: center;
+  color: steelblue;
+  font-size: 3em;
+  font-weight: 600;
+}
+
+#accordion li {
+  list-style: none;
+  width: 100%;
+  margin-bottom: 10px;
+  background: beige;
+  border-radius: 4px;
+  overflow: hidden; /* hide the content by default */
+}
+
+#accordion li label {
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 2em;
+  font-weight: 600;
+  cursor: pointer;
+  color: blueviolet;
+}
+
+#accordion li label span {
+  transform: rotate(90deg);
+  font-size: 22px;
+  color: #333;
+  transition: transform 0.2s ease-in-out; /* add a transition effect */
+}
+
+#accordion label + input[type="radio"] {
+  display: none;
+}
+
+.content {
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
+.content img {
+  margin: auto;
+}
+
+#accordion .content {
+  padding: 0 10px;
+  line-height: 26px;
+  max-height: 0;
+  transition: max-height 0.5s;
+}
+
+#accordion label:hover + input[type="radio"] + .content,
+#accordion input[type="radio"]:checked + .content {
+  max-height: 400px;
+}
+
+#accordion li:hover label span {
+  transform: rotate(0deg); /* rotate the arrow back to its original position */
+}
