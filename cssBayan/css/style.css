@@ -40,15 +40,9 @@ h1 {
   border-top: solid blueviolet 0.05em;
 }
 
-#accordion li label span {
-  transform: rotate(45deg);
-  font-size: 1em;
-  color: blueviolet;
-  transition: transform 0.3s ease-in-out;
-}
-
-#accordion label + input[type="radio"] {
+#accordion input[type="radio"] {
   display: none;
+  pointer-events: none;
 }
 
 .content {
@@ -79,12 +73,12 @@ h1 {
     max-width: 100%;
   }
 
-  #accordion input[type="radio"]:checked + label span {
-    transform: rotate(180deg);
+  #accordion input[type="radio"]:checked ~ label span {
+    transform: rotate(135deg);
     transition: transform 0.3s ease-in-out;
   }
 
-  #accordion input[type="radio"]:checked + .content {
+  #accordion input[type="radio"]:checked ~ .content {
     max-height: 20em;
   }
 }
@@ -102,12 +96,12 @@ h1 {
     max-width: 100%;
   }
 
-  #accordion input[type="radio"]:checked + label span {
-    transform: rotate(180deg);
+  #accordion input[type="radio"]:checked ~ label span {
+    transform: rotate(135deg);
     transition: transform 0.3s ease-in-out;
   }
 
-  #accordion input[type="radio"]:checked + .content {
+  #accordion input[type="radio"]:checked ~ .content {
     max-height: 20em;
   }
 }
@@ -126,13 +120,26 @@ h1 {
   }
 
   #accordion li:hover label span,
-  #accordion input[type="radio"]:checked + label span {
-    transform: rotate(180deg);
+  #accordion input[type="radio"]:checked ~ label span {
+    transform: rotate(135deg);
     transition: transform 0.3s ease-in-out;
   }
 
-  #accordion label:hover + input[type="radio"] + .content,
-  #accordion input[type="radio"]:checked + .content {
+  #accordion:hover label,
+  #accordion input[type="radio"]:checked ~ label {
+    color: black;
+  }
+
+  #accordion .wrapper {
+    cursor: pointer;
+  }
+
+  #accordion .wrapper input[type="radio"] {
+    pointer-events: none;
+  }
+
+  #accordion .wrapper:hover .content,
+  #accordion input[type="radio"]:checked ~ .content {
     max-height: 20em;
   }
 }
