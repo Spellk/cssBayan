@@ -10,7 +10,7 @@ body {
 
 h1 {
   text-align: center;
-  color: steelblue;
+  color: rgb(83, 0, 116);
   font-size: 3em;
   font-weight: 600;
 }
@@ -37,12 +37,13 @@ h1 {
   font-weight: 600;
   cursor: pointer;
   color: blueviolet;
+  border-top: solid blueviolet 0.05em;
 }
 
 #accordion li label span {
   transform: rotate(45deg);
   font-size: 1em;
-  color: #333;
+  color: blueviolet;
   transition: transform 0.3s ease-in-out;
 }
 
