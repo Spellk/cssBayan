@@ -66,17 +66,6 @@ h1 {
   transition: max-height 0.5s;
 }
 
-#accordion li:hover label span,
-#accordion input[type="radio"]:checked + label span {
-  transform: rotate(180deg);
-  transition: transform 0.3s ease-in-out;
-}
-
-#accordion label:hover + input[type="radio"] + .content,
-#accordion input[type="radio"]:checked + .content {
-  max-height: 20em;
-}
-
 @media only screen and (max-width: 767px) {
   #accordion {
     width: 100%;
@@ -88,6 +77,15 @@ h1 {
 
   .content img {
     max-width: 100%;
+  }
+
+  #accordion input[type="radio"]:checked + label span {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  #accordion input[type="radio"]:checked + .content {
+    max-height: 20em;
   }
 }
 
@@ -103,6 +101,15 @@ h1 {
   .content img {
     max-width: 100%;
   }
+
+  #accordion input[type="radio"]:checked + label span {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  #accordion input[type="radio"]:checked + .content {
+    max-height: 20em;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -116,5 +123,16 @@ h1 {
 
   .content img {
     max-width: 80%;
+  }
+
+  #accordion li:hover label span,
+  #accordion input[type="radio"]:checked + label span {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  #accordion label:hover + input[type="radio"] + .content,
+  #accordion input[type="radio"]:checked + .content {
+    max-height: 20em;
   }
 }
