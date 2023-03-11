@@ -8,11 +8,6 @@ body {
   background-color: beige;
 }
 
-#accordion {
-  margin: auto;
-  width: 40em;
-}
-
 h1 {
   text-align: center;
   color: steelblue;
@@ -20,13 +15,17 @@ h1 {
   font-weight: 600;
 }
 
+#accordion {
+  margin: auto;
+  width: 40em;
+}
+
 #accordion li {
   list-style: none;
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 1em;
   background: beige;
-  border-radius: 4px;
-  overflow: hidden; /* hide the content by default */
+  overflow: hidden;
 }
 
 #accordion li label {
@@ -41,10 +40,10 @@ h1 {
 }
 
 #accordion li label span {
-  transform: rotate(90deg);
-  font-size: 22px;
+  transform: rotate(45deg);
+  font-size: 1em;
   color: #333;
-  transition: transform 0.2s ease-in-out; /* add a transition effect */
+  transition: transform 0.3s ease-in-out;
 }
 
 #accordion label + input[type="radio"] {
@@ -62,17 +61,59 @@ h1 {
 }
 
 #accordion .content {
-  padding: 0 10px;
-  line-height: 26px;
   max-height: 0;
   transition: max-height 0.5s;
 }
 
-#accordion label:hover + input[type="radio"] + .content,
-#accordion input[type="radio"]:checked + .content {
-  max-height: 400px;
+#accordion li:hover label span,
+#accordion input[type="radio"]:checked + label span {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease-in-out;
 }
 
-#accordion li:hover label span {
-  transform: rotate(0deg); /* rotate the arrow back to its original position */
+#accordion label:hover + input[type="radio"] + .content,
+#accordion input[type="radio"]:checked + .content {
+  max-height: 20em;
+}
+
+@media only screen and (max-width: 767px) {
+  #accordion {
+    width: 100%;
+  }
+
+  #accordion li label {
+    font-size: 1.5em;
+  }
+
+  .content img {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  #accordion {
+    width: 80%;
+  }
+
+  #accordion li label {
+    font-size: 2em;
+  }
+
+  .content img {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #accordion {
+    width: 60%;
+  }
+
+  #accordion li label {
+    font-size: 2.5em;
+  }
+
+  .content img {
+    max-width: 80%;
+  }
 }
