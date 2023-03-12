@@ -15,6 +15,10 @@ h1 {
   font-weight: 600;
 }
 
+.wrapper {
+  width: 100%;
+}
+
 #accordion {
   margin: auto;
   width: 40em;
@@ -23,13 +27,12 @@ h1 {
 #accordion li {
   list-style: none;
   width: 100%;
-  margin-bottom: 1em;
-  background: beige;
+  margin-bottom: 0.1em;
+  background: rgb(245, 245, 220);
   overflow: hidden;
 }
 
 #accordion li label {
-  padding: 0.5em;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -52,34 +55,54 @@ h1 {
 }
 
 .content img {
-  margin: auto;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  padding-top: 0.3em;
 }
 
 #accordion .content {
   max-height: 0;
-  transition: max-height 0.5s;
+  transition: max-height 1s;
+}
+
+#accordion li:hover label span,
+#accordion input[type="radio"]:checked ~ label span {
+  transform: rotate(135deg);
+  transition: transform 0.3s ease-in-out;
+}
+
+#accordion input[type="radio"]:checked ~ label {
+  color: black;
+  transition: color 0.5s ease-in-out;
+}
+
+#accordion input[type="radio"]:checked ~ .content {
+  max-height: 20em;
+}
+
+#accordion li label:active {
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#accordion input[type="radio"]:active + label {
+  color: rgb(43, 247, 2);
+  transition: color 0.3s ease-in-out;
 }
 
 @media only screen and (max-width: 767px) {
   #accordion {
-    width: 100%;
+    width: 90%;
   }
 
   #accordion li label {
-    font-size: 1.5em;
+    font-size: 1.1em;
   }
 
-  .content img {
-    max-width: 100%;
-  }
-
-  #accordion input[type="radio"]:checked ~ label span {
-    transform: rotate(135deg);
-    transition: transform 0.3s ease-in-out;
-  }
-
-  #accordion input[type="radio"]:checked ~ .content {
-    max-height: 20em;
+  h1 {
+    font-size: 2em;
   }
 }
 
@@ -89,20 +112,11 @@ h1 {
   }
 
   #accordion li label {
-    font-size: 2em;
+    font-size: 1.2em;
   }
 
-  .content img {
-    max-width: 100%;
-  }
-
-  #accordion input[type="radio"]:checked ~ label span {
-    transform: rotate(135deg);
-    transition: transform 0.3s ease-in-out;
-  }
-
-  #accordion input[type="radio"]:checked ~ .content {
-    max-height: 20em;
+  h1 {
+    font-size: 2.5em;
   }
 }
 
@@ -112,22 +126,7 @@ h1 {
   }
 
   #accordion li label {
-    font-size: 2.5em;
-  }
-
-  .content img {
-    max-width: 80%;
-  }
-
-  #accordion li:hover label span,
-  #accordion input[type="radio"]:checked ~ label span {
-    transform: rotate(135deg);
-    transition: transform 0.3s ease-in-out;
-  }
-
-  #accordion:hover label,
-  #accordion input[type="radio"]:checked ~ label {
-    color: black;
+    font-size: 1.4em;
   }
 
   #accordion .wrapper {
@@ -138,8 +137,23 @@ h1 {
     pointer-events: none;
   }
 
-  #accordion .wrapper:hover .content,
-  #accordion input[type="radio"]:checked ~ .content {
+  #accordion .wrapper:hover .content {
     max-height: 20em;
+  }
+
+  .icon {
+    display: none;
+  }
+
+  #accordion:hover .icon {
+    display: block;
+  }
+
+  #accordion:hover label {
+    color: black;
+  }
+
+  #accordion label {
+    transition: color 0.5s ease-in-out;
   }
 }
